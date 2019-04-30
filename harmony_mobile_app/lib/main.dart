@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vibrate/vibrate.dart';
 
+import 'fancy_button.dart';
+
 //import ''
 void main() => runApp(MyApp());
 
@@ -62,50 +64,31 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: FractionalOffset.topRight,
-            end: FractionalOffset.bottomLeft,
-            stops: [0, 0.5, 1],
-            colors: [
-              Colors.pinkAccent[200],
-              Colors.indigoAccent[100],
-              Colors.indigoAccent[200],
-            ],
+        body: Container(
+          padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: FractionalOffset.topRight,
+              end: FractionalOffset.bottomLeft,
+              stops: [0, 0.5, 1],
+              colors: [
+                Colors.pinkAccent[200],
+                Colors.indigoAccent[100],
+                Colors.indigoAccent[200],
+              ],
+            ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  result,
+                ),
+              ],
+            ),
           ),
         ),
-        child: Center(
-          child: Column(
-            // Column is also layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Invoke "debug painting" (press "p" in the console, choose the
-            // "Toggle Debug Paint" action from the Flutter Inspector in Android
-            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-            // to see the wireframe for each widget.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                result,
-              ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _scanQR,
-        tooltip: 'Camera',
-        child: Icon(Icons.camera_alt),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        floatingActionButton: FancyButton(onPressed: _scanQR));
   }
 }
