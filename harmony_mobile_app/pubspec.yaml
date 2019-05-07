@@ -20,11 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.2
-  barcode_scan: 0.0.8
-  vibrate: 0.0.4
   cloud_firestore: ^0.10.1
-  http:
 
 dev_dependencies:
   flutter_test:
