@@ -19,8 +19,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cloud_firestore: ^0.10.1
+# samples
+  http:
 
 dev_dependencies:
   flutter_test:
