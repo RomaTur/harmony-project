@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:harmony_mobile_app/utils/config.dart';
 import 'package:http/http.dart' as http;
 
 void main() => runApp(MyApp());
@@ -28,8 +29,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    var config = AppConfig.of(context);
+
     return Scaffold(
-      appBar: AppBar(title: Text('Baby Name Votes')),
+      appBar: AppBar(title: Text('Baby Name Votes --- ${config.text}')),
       body: _buildBody(context),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.cloud_download),
