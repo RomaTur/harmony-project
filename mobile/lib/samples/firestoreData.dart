@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    var config = AppConfig.of(context);
+    var config = ConfigWrapper.of(context);
 
     return Scaffold(
       appBar: AppBar(title: Text('Baby Name Votes --- ${config.text}')),
@@ -77,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
     final record = Record.fromSnapshot(data);
+    var config = ConfigWrapper.of(context);
 
     return Padding(
       key: ValueKey(record.name),
@@ -87,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: ListTile(
-          title: Text(record.name),
+          title: Text("${record.name} --- ${config.num}"),
           trailing: Text(record.votes.toString()),
           onTap: () => Firestore.instance.runTransaction((transaction) async {
                 final freshSnapshot = await transaction.get(record.reference);
